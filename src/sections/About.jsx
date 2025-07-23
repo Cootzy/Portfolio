@@ -5,7 +5,37 @@ import GradientSpheres from "../components/GradientSpheres";
 import { bentoSocialLinks } from "../constants";
 import { Alien } from "../../public/models/Alien";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
+
 const About = () => {
+  useGSAP(() => {
+    gsap.from("#card", {
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "power3.inOut",
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top top",
+      },
+    });
+
+    gsap.from(".animated-text", {
+      opacity: 0,
+      y: 20,
+      stagger: 0.15,
+      duration: 0.6,
+      ease: "power3.inOut",
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top top",
+      },
+    });
+  }, []);
   return (
     <section id="about" className="flex-center relative md:p-0 px-5">
       <GradientSpheres
@@ -58,40 +88,40 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="md:col-span-6 col-span-12 row-span-3">
+            <div id="card" className="md:col-span-6 col-span-12 row-span-3">
               <div className="bg-black-300 rounded-2xl p-7 w-full h-full">
                 <div className="flex flex-col h-full justify-center gap-2">
-                  <h1 className="gradient-title md:text-3xl text-2xl font-medium">
+                  <h1 className="gradient-title md:text-3xl text-2xl font-medium animated-text">
                     Designing & Building for the Web
                   </h1>
-                  <p className="md:text-2xl max-w-96">
+                  <p className="md:text-2xl max-w-96 animated-text">
                     Cleanly crafted, conversion-driven, and easy to maintain.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="md:col-span-6 col-span-12 row-span-3">
+            <div id="card" className="md:col-span-6 col-span-12 row-span-3">
               <div className="bg-black-300 rounded-2xl p-7 w-full h-full">
                 <div className="flex flex-col h-full justify-center gap-2">
-                  <h1 className="gradient-title md:text-3xl text-2xl font-medium">
+                  <h1 className="gradient-title md:text-3xl text-2xl font-medium animated-text">
                     UI UX Design
                   </h1>
-                  <p className="md:text-2xl max-w-96">
+                  <p className="md:text-2xl max-w-96 animated-text">
                     Seamless web design to wow your users.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="md:col-span-4 col-span-12 row-span-4">
+            <div id="card" className="md:col-span-4 col-span-12 row-span-4">
               <div className="bg-black-300 rounded-2xl p-7 w-full h-full">
                 <div className="flex flex-col justify-between h-full">
-                  <h1 className="gradient-title md:text-5xl text-3xl font-bold">
+                  <h1 className="gradient-title md:text-5xl text-3xl font-bold animated-text">
                     BE YOURSELF!
                   </h1>
-                  <h1 className="gradient-title md:text-5xl text-3xl font-bold">
+                  <h1 className="gradient-title md:text-5xl text-3xl font-bold animated-text">
                     BE DIFFERENT!
                   </h1>
-                  <h1 className="gradient-title md:text-5xl text-3xl font-bold">
+                  <h1 className="gradient-title md:text-5xl text-3xl font-bold animated-text">
                     BUILD DIFFERENT!
                   </h1>
                 </div>
